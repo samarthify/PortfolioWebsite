@@ -4,22 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samarth Nagpal | AI & ML Engineer</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portfolio of Samarth Nagpal, AI & ML Engineer, Data Scientist, and Full Stack Developer based in Delhi, India. Showcasing projects, experience, and contact information.">
+    <meta name="keywords" content="Samarth Nagpal, AI, ML, Data Science, Portfolio, Full Stack, Engineer, Delhi">
+    <meta name="author" content="Samarth Nagpal">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Samarth Nagpal | AI & ML Engineer">
+    <meta property="og:description" content="Portfolio of Samarth Nagpal, AI & ML Engineer, Data Scientist, and Full Stack Developer based in Delhi, India.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-portfolio-url.com/">
+    <meta property="og:image" content="https://your-portfolio-url.com/og-image.jpg">
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Samarth Nagpal | AI & ML Engineer">
+    <meta name="twitter:description" content="Portfolio of Samarth Nagpal, AI & ML Engineer, Data Scientist, and Full Stack Developer based in Delhi, India.">
+    <meta name="twitter:image" content="https://your-portfolio-url.com/og-image.jpg">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">SN</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+        <nav aria-label="Main Navigation">
+            <div class="logo" tabindex="0" aria-label="Samarth Nagpal Home">SN</div>
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a role="menuitem" href="#home">Home</a></li>
+                <li role="none"><a role="menuitem" href="#about">About</a></li>
+                <li role="none"><a role="menuitem" href="#experience">Experience</a></li>
+                <li role="none"><a role="menuitem" href="#projects">Projects</a></li>
+                <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
             </ul>
-            <div class="burger">
+            <div class="burger" tabindex="0" aria-label="Open navigation menu" role="button" aria-pressed="false">
                 <div class="line1"></div>
                 <div class="line2"></div>
                 <div class="line3"></div>
@@ -27,125 +43,301 @@
         </nav>
     </header>
 
-    <section id="home" class="hero">
+    <section id="home" class="hero" aria-labelledby="hero-heading">
         <div class="hero-content">
-            <h1>Hi, I'm <span class="highlight">Samarth Nagpal</span></h1>
+            <h1 id="hero-heading">Hi, I'm <span class="highlight">Samarth Nagpal</span></h1>
             <p class="subtitle">AI & ML Engineer | Data Scientist | Full Stack Developer</p>
             <div class="hero-location">
-                <i class="fas fa-map-marker-alt"></i>
+                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                 <span>Delhi, India</span>
             </div>
             <div class="hero-buttons">
                 <a href="#contact" class="cta-button">Get in Touch</a>
                 <a href="#projects" class="secondary-button">View Projects</a>
+                <a href="resume.pdf" class="secondary-button" download aria-label="Download Resume as PDF">Download Resume</a>
             </div>
         </div>
-        <div class="hero-particles" id="particles-js"></div>
+        <div class="hero-particles" id="particles-js" aria-hidden="true"></div>
     </section>
 
-    <section id="about" class="about">
-        <h2>About Me</h2>
+    <section id="about" class="about" aria-labelledby="about-heading">
+        <h2 id="about-heading">About Me</h2>
         <div class="about-content">
-            <div class="about-text">
-                <p>I'm a passionate AI & ML Engineer with expertise in developing intelligent solutions and data-driven applications. Currently pursuing my Bachelor's in Production and Industrial Engineering at Delhi Technological University, I combine technical skills with innovative problem-solving to create impactful solutions.</p>
-                <div class="skills">
-                    <h3>Technical Skills</h3>
-                    <div class="skill-categories">
-                        <div class="skill-category">
-                            <h4><i class="fas fa-code"></i> Languages</h4>
-                            <div class="skill-tags">
-                                <span>Python</span>
-                                <span>SQL</span>
-                                <span>JavaScript</span>
-                                <span>HTML</span>
-                                <span>CSS</span>
-                            </div>
+            <div class="about-intro">
+                <div class="about-text">
+                    <h3>Turning Data into Intelligence, One Algorithm at a Time</h3>
+                    <p class="about-description">
+                        Hey there! I'm Samarth, a passionate AI & ML Engineer who believes that technology should solve real-world problems. Currently pursuing my Bachelor's in Production and Industrial Engineering at Delhi Technological University, I've discovered that the intersection of engineering principles and artificial intelligence is where the magic happens.
+                    </p>
+                    <p class="about-story">
+                        My journey into the world of AI began with a simple curiosity about how machines could learn and adapt. What started as academic exploration has evolved into a passion for creating intelligent solutions that make a difference. From optimizing resource allocation to building computer vision applications, I love turning complex problems into elegant, data-driven solutions.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-rocket"></i>
+                            <span>20% waste reduction through AI optimization</span>
                         </div>
-                        <div class="skill-category">
-                            <h4><i class="fas fa-brain"></i> AI/ML</h4>
-                            <div class="skill-tags">
-                                <span>TensorFlow</span>
-                                <span>Scikit-learn</span>
-                                <span>OpenCV</span>
-                                <span>NLTK</span>
-                                <span>Pandas</span>
-                            </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>95% accuracy in computer vision applications</span>
                         </div>
-                        <div class="skill-category">
-                            <h4><i class="fas fa-laptop-code"></i> Web Technologies</h4>
-                            <div class="skill-tags">
-                                <span>ReactJS</span>
-                                <span>Flask</span>
-                                <span>FastAPI</span>
-                                <span>Bootstrap</span>
-                                <span>SQLite</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h4><i class="fas fa-tools"></i> Tools</h4>
-                            <div class="skill-tags">
-                                <span>Git</span>
-                                <span>Power BI</span>
-                                <span>Excel</span>
-                                <span>OpenAI API</span>
-                                <span>PuLP</span>
-                            </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-users"></i>
+                            <span>Led teams of 10+ developers</span>
                         </div>
                     </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-user-graduate"></i>
+                        <p>Your Photo Here</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-details">
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h4>Education</h4>
+                    <p>Bachelor's in Production and Industrial Engineering</p>
+                    <span class="detail-subtitle">Delhi Technological University</span>
+                </div>
+                
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h4>Experience</h4>
+                    <p>2+ years in AI/ML and Web Development</p>
+                    <span class="detail-subtitle">Internships & Freelance</span>
+                </div>
+                
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h4>Achievements</h4>
+                    <p>Smart India Hackathon Winner</p>
+                    <span class="detail-subtitle">National Level Competition</span>
+                </div>
+            </div>
+
+            <div class="skills-section">
+                <h3>Technical Expertise</h3>
+                <p class="skills-intro">I specialize in building intelligent systems that combine cutting-edge AI technologies with practical engineering solutions.</p>
+                
+                <div class="skill-categories">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-code"></i> Programming Languages</h4>
+                        <div class="skill-tags">
+                            <span>Python</span>
+                            <span>SQL</span>
+                            <span>JavaScript</span>
+                            <span>HTML/CSS</span>
+                            <span>R</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fas fa-brain"></i> AI & Machine Learning</h4>
+                        <div class="skill-tags">
+                            <span>TensorFlow</span>
+                            <span>Scikit-learn</span>
+                            <span>OpenCV</span>
+                            <span>NLTK</span>
+                            <span>Pandas</span>
+                            <span>PyTorch</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fas fa-laptop-code"></i> Web Development</h4>
+                        <div class="skill-tags">
+                            <span>ReactJS</span>
+                            <span>Flask</span>
+                            <span>FastAPI</span>
+                            <span>Bootstrap</span>
+                            <span>SQLite</span>
+                            <span>Node.js</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fas fa-tools"></i> Tools & Platforms</h4>
+                        <div class="skill-tags">
+                            <span>Git</span>
+                            <span>Power BI</span>
+                            <span>Excel</span>
+                            <span>OpenAI API</span>
+                            <span>PuLP</span>
+                            <span>Docker</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-cta">
+                <h3>Ready to Build Something Amazing?</h3>
+                <p>Let's collaborate on innovative AI solutions that make a real impact.</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="cta-button">View My Work</a>
+                    <a href="#contact" class="secondary-button">Let's Talk</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="experience" class="experience">
-        <h2>Work Experience</h2>
+    <section id="experience" class="experience" aria-labelledby="experience-heading">
+        <h2 id="experience-heading">Work Experience</h2>
+        <div class="experience-intro">
+            <p>My professional journey spans across AI/ML engineering and full-stack development, where I've delivered impactful solutions and led teams to success.</p>
+        </div>
+        
         <div class="timeline">
             <div class="timeline-item">
+                <div class="timeline-marker">
+                    <div class="marker-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                </div>
                 <div class="timeline-content">
-                    <h3>Machine Learning Intern</h3>
-                    <h4>Suvidha Foundation, Delhi</h4>
-                    <p class="timeline-date">08/2024 – 09/2024</p>
+                    <div class="timeline-header">
+                        <div class="company-info">
+                            <div class="company-logo">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="company-details">
+                                <h3>Machine Learning Intern</h3>
+                                <h4>Suvidha Foundation, Delhi</h4>
+                                <p class="timeline-date">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    08/2024 – 09/2024
+                                </p>
+                            </div>
+                        </div>
+                        <div class="timeline-badge">
+                            <span>AI/ML</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-description">
+                        <p>Led the development of innovative AI solutions for resource optimization and data analytics, achieving significant improvements in operational efficiency.</p>
+                    </div>
+                    
                     <ul class="timeline-details">
-                        <li>Designed a hybrid LLM-LP model for optimized resource allocation, decreasing waste by 20%</li>
-                        <li>Led multi-source data preprocessing, improving dataset reliability by 40%</li>
-                        <li>Built interactive dashboards with Matplotlib, Seaborn, and Power BI</li>
-                        <li>Delivered monthly impact reports, increasing efficiency by 25%</li>
+                        <li><i class="fas fa-check-circle"></i>Designed a hybrid LLM-LP model for optimized resource allocation, decreasing waste by <strong>20%</strong></li>
+                        <li><i class="fas fa-check-circle"></i>Led multi-source data preprocessing, improving dataset reliability by <strong>40%</strong></li>
+                        <li><i class="fas fa-check-circle"></i>Built interactive dashboards with Matplotlib, Seaborn, and Power BI for real-time monitoring</li>
+                        <li><i class="fas fa-check-circle"></i>Delivered monthly impact reports, increasing overall efficiency by <strong>25%</strong></li>
+                        <li><i class="fas fa-check-circle"></i>Collaborated with cross-functional teams to implement AI-driven decision support systems</li>
                     </ul>
+                    
                     <div class="tech-used">
-                        <span>Python</span>
-                        <span>Matplotlib</span>
-                        <span>Seaborn</span>
-                        <span>Power BI</span>
-                        <span>OpenAI API</span>
+                        <span class="tech-label">Technologies:</span>
+                        <div class="tech-tags">
+                            <span>Python</span>
+                            <span>TensorFlow</span>
+                            <span>Matplotlib</span>
+                            <span>Seaborn</span>
+                            <span>Power BI</span>
+                            <span>OpenAI API</span>
+                            <span>Pandas</span>
+                            <span>Scikit-learn</span>
+                        </div>
                     </div>
                 </div>
             </div>
+            
             <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Web Development Intern</h3>
-                    <h4>IATSAT, Delhi</h4>
-                    <p class="timeline-date">08/2023 – 11/2023</p>
-                    <ul class="timeline-details">
-                        <li>Revamped user interface with ReactJS, resulting in a 25% increase in CTR</li>
-                        <li>Led a team of 10 junior developers, fostering collaboration and providing mentorship</li>
-                    </ul>
-                    <div class="tech-used">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                        <span>ReactJS</span>
+                <div class="timeline-marker">
+                    <div class="marker-icon">
+                        <i class="fas fa-code"></i>
                     </div>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <div class="company-info">
+                            <div class="company-logo">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div class="company-details">
+                                <h3>Web Development Intern</h3>
+                                <h4>IATSAT, Delhi</h4>
+                                <p class="timeline-date">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    08/2023 – 11/2023
+                                </p>
+                            </div>
+                        </div>
+                        <div class="timeline-badge">
+                            <span>Full-Stack</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-description">
+                        <p>Spearheaded frontend development initiatives and team leadership, delivering high-impact web solutions that improved user engagement and conversion rates.</p>
+                    </div>
+                    
+                    <ul class="timeline-details">
+                        <li><i class="fas fa-check-circle"></i>Revamped user interface with ReactJS, resulting in a <strong>25% increase in CTR</strong></li>
+                        <li><i class="fas fa-check-circle"></i>Led a team of <strong>10 junior developers</strong>, fostering collaboration and providing mentorship</li>
+                        <li><i class="fas fa-check-circle"></i>Implemented responsive design principles, improving mobile user experience by <strong>40%</strong></li>
+                        <li><i class="fas fa-check-circle"></i>Optimized website performance, reducing load times by <strong>30%</strong></li>
+                        <li><i class="fas fa-check-circle"></i>Developed and maintained RESTful APIs for seamless data integration</li>
+                    </ul>
+                    
+                    <div class="tech-used">
+                        <span class="tech-label">Technologies:</span>
+                        <div class="tech-tags">
+                            <span>ReactJS</span>
+                            <span>JavaScript</span>
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>Node.js</span>
+                            <span>Git</span>
+                            <span>REST APIs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="experience-stats">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="stat-content">
+                    <h4>25%</h4>
+                    <p>Average Efficiency Improvement</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-content">
+                    <h4>10+</h4>
+                    <p>Team Members Led</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <div class="stat-content">
+                    <h4>15+</h4>
+                    <p>Projects Completed</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="projects">
-        <h2>Featured Projects</h2>
+    <section id="projects" class="projects" aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Featured Projects</h2>
         <div class="project-grid">
-            <div class="project-card">
+            <div class="project-card" tabindex="0" aria-label="CareerPathAI project details" role="button">
                 <div class="project-icon">
-                    <i class="fas fa-robot"></i>
+                    <i class="fas fa-robot" aria-hidden="true"></i>
                 </div>
                 <h3>CareerPathAI</h3>
                 <p>ML-powered career guidance platform with 70% accuracy in personalized recommendations</p>
@@ -156,13 +348,13 @@
                     <span>Bootstrap</span>
                 </div>
                 <div class="project-links">
-                    <a href="#" class="project-link">View Demo</a>
-                    <a href="#" class="project-link">Source Code</a>
+                    <a href="https://github.com/samarthify/SIH1666" class="project-link" target="_blank" rel="noopener" aria-label="View CareerPathAI Demo">View Demo</a>
+                    <a href="#" class="project-link" aria-label="View CareerPathAI Source Code">Source Code</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" tabindex="0" aria-label="AI Fitness Trainer project details" role="button">
                 <div class="project-icon">
-                    <i class="fas fa-dumbbell"></i>
+                    <i class="fas fa-dumbbell" aria-hidden="true"></i>
                 </div>
                 <h3>AI Fitness Trainer</h3>
                 <p>Computer vision-based fitness tracking with 95% pose detection accuracy</p>
@@ -172,13 +364,15 @@
                     <span>Mediapipe</span>
                 </div>
                 <div class="project-links">
-                    <a href="#" class="project-link">View Demo</a>
-                    <a href="#" class="project-link">Source Code</a>
+                    <a href="https://drive.google.com/file/d/1hG3Su1XjyxP006r1hSS099xYKkM9pp7Z/view?usp=sharing
+                    " class="project-link" aria-label="View AI Fitness Trainer Demo">View Demo</a>
+                    <a href="https://github.com/samarthify/AI-Fitness-Trainer
+                    " class="project-link" aria-label="View AI Fitness Trainer Source Code">Source Code</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" tabindex="0" aria-label="Sentiment Analysis App project details" role="button">
                 <div class="project-icon">
-                    <i class="fas fa-chart-line"></i>
+                    <i class="fas fa-chart-line" aria-hidden="true"></i>
                 </div>
                 <h3>Sentiment Analysis App</h3>
                 <p>Full-stack sentiment analysis application processing 100 entries per CSV file</p>
@@ -188,8 +382,8 @@
                     <span>React</span>
                 </div>
                 <div class="project-links">
-                    <a href="#" class="project-link">View Demo</a>
-                    <a href="#" class="project-link">Source Code</a>
+                    <a href="#" class="project-link" aria-label="View Sentiment Analysis App Demo">View Demo</a>
+                    <a href="#" class="project-link" aria-label="View Sentiment Analysis App Source Code">Source Code</a>
                 </div>
             </div>
         </div>
@@ -197,60 +391,175 @@
 
     <section id="contact" class="contact">
         <h2>Get in Touch</h2>
+        <div class="contact-intro">
+            <p>Ready to collaborate on innovative AI solutions? Let's discuss how we can bring your ideas to life with cutting-edge technology.</p>
+        </div>
+        
         <div class="contact-content">
             <div class="contact-info glass-effect">
-                <h3>Let's Connect</h3>
-                <p>Feel free to reach out for collaborations or just a friendly hello</p>
+                <div class="contact-header">
+                    <h3>Let's Connect</h3>
+                    <p>Feel free to reach out for collaborations, opportunities, or just a friendly hello. I'm always excited to discuss new projects and opportunities!</p>
+                </div>
+                
                 <div class="contact-details">
                     <div class="contact-item">
-                        <i class="fas fa-phone"></i>
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
                         <div class="contact-text">
                             <h4>Phone</h4>
                             <p>+91 8447159964</p>
+                            <span class="contact-note">Available for calls and WhatsApp</span>
                         </div>
                     </div>
+                    
                     <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
                         <div class="contact-text">
                             <h4>Email</h4>
-                            <p>your.email@gmail.com</p>
+                            <p>samarth.nagpal@dtu.ac.in</p>
+                            <span class="contact-note">I usually respond within 24 hours</span>
                         </div>
                     </div>
+                    
                     <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
                         <div class="contact-text">
                             <h4>Location</h4>
                             <p>Delhi, India</p>
+                            <span class="contact-note">Open to remote opportunities worldwide</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Availability</h4>
+                            <p>Open to Opportunities</p>
+                            <span class="contact-note">Full-time, Internships, Freelance</span>
                         </div>
                     </div>
                 </div>
-                <div class="social-links">
-                    <a href="#" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+                
+                <div class="social-section">
+                    <h4>Follow My Journey</h4>
+                    <p>Connect with me on social platforms to stay updated with my latest projects and insights.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/samarthify" class="social-link" title="GitHub" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/samarthnagpal/" class="social-link" title="LinkedIn" target="_blank" rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://x.com/samarthify" class="social-link" title="X (Twitter)" target="_blank" rel="noopener">
+                            <i class="fab fa-x-twitter"></i>
+                            <span>X (Twitter)</span>
+                        </a>
+                        <a href="mailto:samarth.nagpal@dtu.ac.in" class="social-link" title="Email">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <form class="contact-form glass-effect">
-                <div class="form-group">
-                    <input type="text" id="name" required>
-                    <label for="name">Your Name</label>
-                    <span class="focus-border"></span>
+            
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+                <div class="form-header">
+                    <h3>Send me a message</h3>
+                    <p>I'd love to hear from you! Fill out the form below and I'll get back to you within 24 hours.</p>
                 </div>
-                <div class="form-group">
-                    <input type="email" id="email" required>
-                    <label for="email">Your Email</label>
-                    <span class="focus-border"></span>
+                
+                <!-- Custom Styled Contact Form -->
+                <form class="contact-form glass-effect" action="https://docs.google.com/forms/d/e/1FAIpQLSc2_QE776JoXYXZj5vzl8v_HuoJHLQ9e4NQqBWtefdaPIwXsw/formResponse" method="POST" target="hidden-iframe">
+                    <div class="form-group">
+                        <input type="text" id="entry.2005620554" name="entry.2005620554" required aria-required="true" aria-label="Your Name">
+                        <label for="entry.2005620554">Your Name *</label>
+                        <span class="focus-border"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="entry.1045781291" name="entry.1045781291" required aria-required="true" aria-label="Your Email">
+                        <label for="entry.1045781291">Your Email *</label>
+                        <span class="focus-border"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="entry.1065046570" name="entry.1065046570" required aria-required="true" aria-label="Subject">
+                        <label for="entry.1065046570">Subject *</label>
+                        <span class="focus-border"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="entry.839337160" name="entry.839337160" required aria-required="true" aria-label="Your Message" rows="5"></textarea>
+                        <label for="entry.839337160">Your Message *</label>
+                        <span class="focus-border"></span>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="entry.1166974658" name="entry.1166974658" value="Yes">
+                        <label for="entry.1166974658">Subscribe to my newsletter for AI/ML insights and project updates</label>
+                    </div>
+                    
+                    <button type="submit" class="submit-button" aria-label="Send Message">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                    
+                    <div class="form-feedback" aria-live="polite" style="display:none;"></div>
+                    
+                    <div class="form-note">
+                        <p><i class="fas fa-info-circle"></i> I typically respond within 24 hours. For urgent matters, feel free to call or WhatsApp me directly.</p>
+                    </div>
+                </form>
+                
+                <!-- Hidden iframe for form submission -->
+                <iframe name="hidden-iframe" style="display:none;"></iframe>
+                
+                <!-- Alternative Contact Methods -->
+                <div class="contact-alternatives">
+                    <div class="alternative-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email Directly</h4>
+                            <p>your-email@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="alternative-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <h4>Connect on LinkedIn</h4>
+                            <p>Let's network professionally</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <textarea id="message" required></textarea>
-                    <label for="message">Your Message</label>
-                    <span class="focus-border"></span>
+            </div>
+        </div>
+        
+        <div class="contact-cta">
+            <div class="cta-content">
+                <h3>Ready to Start a Project?</h3>
+                <p>Let's discuss how we can bring your ideas to life with cutting-edge AI and machine learning solutions.</p>
+                <div class="cta-actions">
+                    <a href="tel:+918447159964" class="cta-button">
+                        <i class="fas fa-phone"></i>
+                        Call Now
+                    </a>
+                    <a href="https://wa.me/918447159964" class="secondary-button" target="_blank" rel="noopener">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
                 </div>
-                <button type="submit" class="submit-button">
-                    <span>Send Message</span>
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </form>
+            </div>
         </div>
     </section>
 
