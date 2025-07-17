@@ -2202,3 +2202,78 @@ nav {
         font-size: 0.85rem;
     }
 } 
+
+@media (max-width: 600px) {
+    header {
+        padding: 0.5rem 1rem;
+    }
+    nav {
+        flex-direction: column;
+        padding: 0.5rem 0;
+    }
+    .logo {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+    .hero {
+        height: auto;
+        min-height: 80vh;
+        padding: 2rem 0.5rem 1rem 0.5rem;
+    }
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .subtitle {
+        font-size: 1rem;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .about-content,
+    .about-details,
+    .skills-section,
+    .project-grid,
+    .contact-content,
+    .cta-buttons,
+    .experience-stats {
+        flex-direction: column !important;
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+    .project-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .project-card {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    .contact-form, .contact-info {
+        padding: 1rem;
+    }
+    .contact-cta {
+        padding: 1.5rem 0.5rem;
+    }
+    .timeline,
+    .timeline-item,
+    .timeline-content {
+        padding: 0.5rem 0;
+        width: 100%;
+    }
+    .stat-card {
+        width: 100%;
+    }
+    footer {
+        padding: 1rem 0.5rem;
+    }
+} 
