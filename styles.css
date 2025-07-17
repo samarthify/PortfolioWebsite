@@ -2264,11 +2264,48 @@ nav {
     .contact-cta {
         padding: 1.5rem 0.5rem;
     }
-    .timeline,
-    .timeline-item,
-    .timeline-content {
+    .timeline {
         padding: 0.5rem 0;
+    }
+    .timeline-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
         width: 100%;
+        padding: 1rem 0;
+        margin: 0;
+    }
+    .timeline-marker {
+        margin: 0 0 0.5rem 0;
+        align-self: flex-start;
+    }
+    .timeline-content {
+        padding: 0;
+        width: 100%;
+    }
+    .timeline-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .company-info, .company-details {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left !important;
+    }
+    .timeline-badge {
+        margin: 0.5rem 0 0 0;
+    }
+    .timeline-description, .timeline-details, .tech-used {
+        text-align: left !important;
+        width: 100%;
+    }
+    .timeline-details li {
+        font-size: 1rem;
+        padding-left: 0;
+    }
+    .tech-tags span {
+        font-size: 0.95rem;
     }
     .stat-card {
         width: 100%;
