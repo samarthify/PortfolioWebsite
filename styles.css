@@ -2313,4 +2313,20 @@ nav {
     footer {
         padding: 1rem 0.5rem;
     }
+    .timeline, .timeline-item, .timeline-content, .timeline-header, .timeline-description, .timeline-details, .tech-used {
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+    .timeline-details, .timeline-description, .tech-used, .company-details, .company-info {
+        overflow-wrap: break-word;
+        word-break: break-word;
+        white-space: normal;
+    }
+    .timeline-details li, .timeline-description p, .company-details h3, .company-details h4, .timeline-date {
+        max-width: 100%;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        white-space: normal;
+    }
 } 
