@@ -2284,8 +2284,8 @@ nav {
         box-sizing: border-box;
         width: 100%;
         overflow-x: hidden;
-        max-width: 100vw !important;
-        width: 100vw !important;
+        max-width: 100% !important;
+        width: 100% !important;
         border-radius: 16px;
     }
     .timeline-header {
