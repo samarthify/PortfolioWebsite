@@ -2280,8 +2280,10 @@ nav {
         align-self: flex-start;
     }
     .timeline-content {
-        padding: 0;
+        padding: 1rem !important;
+        box-sizing: border-box;
         width: 100%;
+        overflow-x: hidden;
     }
     .timeline-header {
         flex-direction: column;
@@ -2319,6 +2321,10 @@ nav {
         overflow-x: hidden;
     }
     .timeline-details, .timeline-description, .tech-used, .company-details, .company-info {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
         overflow-wrap: break-word;
         word-break: break-word;
         white-space: normal;
