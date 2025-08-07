@@ -70,7 +70,7 @@ function doOptions(e) {
 
 function sendEmailNotification(data) {
   // Optional: Send email notification to yourself
-  const recipient = 'your-email@gmail.com'; // Replace with your email
+  const recipient = 'samarthifyy@gmail.com'; // Replace with your email
   const subject = `New Contact Form Submission: ${data.subject}`;
   const body = `
     New contact form submission received:

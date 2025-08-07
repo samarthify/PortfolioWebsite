@@ -226,7 +226,7 @@ document.querySelectorAll('.alternative-item').forEach(item => {
         const type = item.querySelector('h4').textContent.toLowerCase();
         
         if (type.includes('email')) {
-            window.open('mailto:your-email@gmail.com', '_blank');
+            window.open('mailto:samarthifyy@gmail.com', '_blank');
         } else if (type.includes('linkedin')) {
             window.open('https://linkedin.com/in/your-profile', '_blank');
         }
