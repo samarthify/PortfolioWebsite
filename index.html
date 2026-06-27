@@ -38,7 +38,9 @@
   --font-display:'Instrument Serif','Times New Roman',serif;
 }
 
-html{background:var(--bg);color:var(--t1);font-family:var(--font);font-size:16px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-behavior:smooth}
+html{background:var(--bg);color:var(--t1);font-family:var(--font);font-size:16px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
 body{overflow-x:hidden;cursor:none}
 
 /* ── CURSOR ── */
@@ -57,6 +59,8 @@ nav.past{background:rgba(0,0,0,.72);backdrop-filter:blur(24px);-webkit-backdrop-
 
 /* ── HERO ── */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(112px,14vh,180px) 40px 72px;position:relative;overflow:hidden}
+.hero-inner{position:relative;z-index:1;transform-origin:left bottom}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--b1) 1px,transparent 1px),linear-gradient(90deg,var(--b1) 1px,transparent 1px);background-size:80px 80px;pointer-events:none;mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black 20%,transparent 100%);z-index:0;will-change:transform}
 
 .hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--t3);margin-bottom:32px;opacity:0;transform:translateY(14px);animation:fu .7s ease forwards .15s}
 
@@ -88,11 +92,11 @@ nav.past{background:rgba(0,0,0,.72);backdrop-filter:blur(24px);-webkit-backdrop-
 .hero-byline strong{font-size:13px;font-weight:500;color:var(--t1)}
 .hero-byline span{font-size:13px;color:var(--t3)}
 
-.hero-scroll-hint{position:absolute;bottom:36px;right:40px;display:flex;align-items:center;gap:10px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);opacity:0;animation:fu .6s ease forwards 1.8s}
-.scroll-line{width:28px;height:1px;background:var(--t4)}
+.hero-scroll-hint{position:absolute;bottom:36px;right:40px;z-index:2;display:flex;align-items:center;gap:10px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);opacity:0;animation:fu .6s ease forwards 1.8s}
+.scroll-line{width:28px;height:1px;background:var(--t4);transform-origin:left center;will-change:transform}
 
-/* faint grid ── */
-.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--b1) 1px,transparent 1px),linear-gradient(90deg,var(--b1) 1px,transparent 1px);background-size:80px 80px;pointer-events:none;mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black 20%,transparent 100%)}
+/* ── REVEAL (GSAP-owned) ── */
+.rv{will-change:transform,opacity}
 
 /* ── KEYFRAMES ── */
 @keyframes fu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
@@ -100,17 +104,14 @@ nav.past{background:rgba(0,0,0,.72);backdrop-filter:blur(24px);-webkit-backdrop-
 @keyframes drawLine{to{stroke-dashoffset:0}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
-/* ── REVEAL ── */
-.rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
-.rv.on{opacity:1;transform:translateY(0)}
-.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
-
 /* ── SHARED SECTION ── */
-.sec-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:72px}
+.sec-label{display:flex;align-items:center;gap:14px;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:72px}
+.sec-label-line{display:block;width:32px;height:1px;background:var(--t4);transform-origin:left center;transform:scaleX(0)}
 section{padding:140px 40px;border-top:1px solid var(--b1)}
 
 /* ── LEAD PROJECT ── */
-.lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.lead-scene{min-height:100vh;display:flex;align-items:center}
+.lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;width:100%}
 
 .lead-tag{display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--t3);border:1px solid var(--b1);padding:4px 10px;border-radius:4px;margin-bottom:32px}
 .lead-dot{width:6px;height:6px;border-radius:50%;background:var(--t4)}
@@ -143,15 +144,13 @@ section{padding:140px 40px;border-top:1px solid var(--b1)}
   border-radius:14px;
   overflow:hidden;
   will-change:transform;
-  transform:rotateY(-28deg) rotateX(7deg) scale(.93);
   box-shadow:0 40px 120px rgba(0,0,0,.8),0 0 0 1px var(--b1);
 }
 
 .mb{height:34px;background:var(--s2);border-bottom:1px solid var(--b1);display:flex;align-items:center;padding:0 14px;gap:5px;flex-shrink:0}
 .md{width:7px;height:7px;border-radius:50%;background:var(--b2)}
 .mb-live{margin-left:auto;display:inline-flex;align-items:center;gap:5px;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);font-weight:500}
-.mb-pulse{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(70,210,126,.7);animation:pulse 1.8s ease-out infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(70,210,126,.6)}70%{box-shadow:0 0 0 6px rgba(70,210,126,0)}100%{box-shadow:0 0 0 0 rgba(70,210,126,0)}}
+.mb-pulse{width:6px;height:6px;border-radius:50%;background:var(--accent)}
 .mc{display:grid;grid-template-columns:160px 1fr;flex:1;overflow:hidden;min-height:0}
 .ms{border-right:1px solid var(--b1);padding:14px 12px;display:flex;flex-direction:column;gap:2px;overflow:hidden}
 .mni{height:26px;border-radius:5px;display:flex;align-items:center;padding:0 10px;font-size:10px;font-weight:500;color:var(--t3);letter-spacing:.01em;flex-shrink:0;transition:background .2s}
@@ -163,8 +162,7 @@ section{padding:140px 40px;border-top:1px solid var(--b1)}
 .msc-l{font-size:9px;color:var(--t3);letter-spacing:.03em}
 .mchart{flex:1;background:var(--s2);border:1px solid var(--b1);border-radius:7px;overflow:hidden;position:relative;min-height:60px}
 .mchart svg{position:absolute;inset:0;width:100%;height:100%}
-.chart-path{stroke-dasharray:400;stroke-dashoffset:400;transition:stroke-dashoffset 2.2s cubic-bezier(.4,0,.2,1) .4s}
-.lead-visual.animate .chart-path{stroke-dashoffset:0}
+.chart-path{stroke-dasharray:400;stroke-dashoffset:400}
 
 /* ── PROJECTS GRID ── */
 .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1px;background:var(--b1);border:1px solid var(--b1);border-radius:14px;overflow:hidden}
@@ -217,6 +215,7 @@ footer .ft-mid{flex:1;text-align:center}
   nav{padding:0 20px}
   .hero,.sec-label,section,#contact,footer{padding-left:20px;padding-right:20px}
   .lead-grid,.proj-grid{grid-template-columns:1fr}
+  .lead-scene{min-height:80vh}
   .lead-stats{grid-template-columns:repeat(3,1fr)}
   .ct-stmt{font-size:clamp(36px,11vw,80px)}
   .hero-scroll-hint{right:20px}
@@ -231,15 +230,17 @@ footer .ft-mid{flex:1;text-align:center}
   #cur{display:none}
 }
 @media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
   .hero-line span{transform:none}
-  .rv{opacity:1;transform:none}
-  .lead-visual{transform:none !important}
+  .rv,.scrub-item,.sec-label,.pc,.ct-stmt,.ct-sub,.ct-links,.lead-stack{opacity:1!important;transform:none!important}
+  .sec-label-line{transform:scaleX(1)!important}
+  .lead-visual{transform:none!important}
   .mb-pulse{animation:none}
   #noise{display:none}
   #cur{display:none}
   body{cursor:auto}
-  .chart-path{stroke-dashoffset:0 !important}
+  .chart-path{stroke-dashoffset:0!important}
+  .lead-scene{min-height:auto}
 }
 </style>
 </head>
@@ -258,7 +259,7 @@ footer .ft-mid{flex:1;text-align:center}
     <a href="https://x.com/samarthify" class="nl" title="X / Twitter" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
       <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.738l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
     </a>
-    <a href="mailto:hi@samarthify.in" class="nl" title="Email" aria-label="Email">
+    <a href="mailto:samarthifyy@gmail.com" class="nl" title="Email" aria-label="Email">
       <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
     </a>
     <a href="https://www.linkedin.com/in/samarthnagpal/" class="nl" title="LinkedIn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
@@ -273,22 +274,25 @@ footer .ft-mid{flex:1;text-align:center}
 <main>
 <!-- ── HERO ── -->
 <section class="hero" style="border:none">
-  <div class="hero-eyebrow">Founding Engineer &nbsp;·&nbsp; Govtech AI in Production</div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Founding Engineer &nbsp;·&nbsp; Govtech AI in Production</div>
 
-  <h1 class="hero-statement">
-    <span class="hero-line"><span>Built a country&rsquo;s</span></span>
-    <span class="hero-line"><span>nervous system</span></span>
-    <span class="hero-line"><span>in <span class="accent">eight</span> months.</span></span>
-  </h1>
+    <h1 class="hero-statement">
+      <span class="hero-line"><span>Built a country&rsquo;s</span></span>
+      <span class="hero-line"><span>nervous system</span></span>
+      <span class="hero-line"><span>in <span class="accent">eight</span> months.</span></span>
+    </h1>
 
-  <p class="hero-sub">
-    Senses signals across media, security, and politics. Pushes alerts to principals. Triggers automated mitigation before incidents become crises.<br><br>
-    One engineer. Sole architect. The president runs it on his iPad.
-  </p>
+    <p class="hero-sub">
+      Senses signals across media, security, and politics. Pushes alerts to principals. Triggers automated mitigation before incidents become crises.<br><br>
+      One engineer. Sole architect. The president runs it on his iPad.
+    </p>
 
-  <div class="hero-byline">
-    <strong>Samarth Nagpal</strong>
-    <span>·&nbsp; Delhi, India &nbsp;·&nbsp; Open to SF or Bangalore</span>
+    <div class="hero-byline">
+      <strong>Samarth Nagpal</strong>
+      <span>·&nbsp; Delhi, India &nbsp;·&nbsp; Open to SF or Bangalore</span>
+    </div>
   </div>
 
   <div class="hero-scroll-hint" aria-hidden="true">
@@ -299,38 +303,39 @@ footer .ft-mid{flex:1;text-align:center}
 
 <!-- ── LEAD PROJECT ── -->
 <section id="lead">
-  <div class="sec-label rv">Lead work — 01</div>
-  <div class="lead-grid">
+  <div class="sec-label rv"><span class="sec-label-line" aria-hidden="true"></span><span>Lead work — 01</span></div>
+  <div class="lead-scene">
+    <div class="lead-grid">
 
-    <div class="lead-content">
-      <span class="lead-tag rv"><span class="lead-dot"></span>NDA &nbsp;·&nbsp; National Government</span>
-      <h2 class="lead-title rv">Senses. Briefs.<br>Responds.</h2>
-      <p class="lead-kicker rv d1">Intelligence + response platform &middot; 7+ federal agencies &middot; executive office.</p>
-      <div class="lead-desc rv d1">
-        <p>Started on a narrow scope. Ended as sole engineer on a presidential-scale national deployment.</p>
-        <p>Eight months later: real-time intelligence across media, security, politics, and inter-agency coordination. Multilingual ingestion. Executive briefings. <em>Automated mitigation before incidents become crises.</em></p>
-        <p>Four weeks on the ground demoing to ministers, national security advisors, and the president.</p>
+      <div class="lead-content">
+        <span class="lead-tag scrub-item"><span class="lead-dot"></span>NDA &nbsp;·&nbsp; National Government</span>
+        <h2 class="lead-title scrub-item">Senses. Briefs.<br>Responds.</h2>
+        <p class="lead-kicker scrub-item">Intelligence + response platform &middot; 7+ federal agencies &middot; executive office.</p>
+        <div class="lead-desc scrub-item">
+          <p>Started on a narrow scope. Ended as sole engineer on a presidential-scale national deployment.</p>
+          <p>Eight months later: real-time intelligence across media, security, politics, and inter-agency coordination. Multilingual ingestion. Executive briefings. <em>Automated mitigation before incidents become crises.</em></p>
+          <p>Four weeks on the ground demoing to ministers, national security advisors, and the president.</p>
+        </div>
+        <div class="lead-stats scrub-item">
+          <div class="lstat">
+            <span class="lstat-n" data-count="20" data-suffix="K+">0</span>
+            <span class="lstat-l">Signals daily</span>
+          </div>
+          <div class="lstat">
+            <span class="lstat-n">&lt;60s</span>
+            <span class="lstat-l">Ingestion-to-alert</span>
+          </div>
+          <div class="lstat">
+            <span class="lstat-n" data-count="7" data-suffix="+">0</span>
+            <span class="lstat-l">Federal agencies</span>
+          </div>
+        </div>
+        <span class="lead-cta scrub-item" style="cursor:default">
+          Under NDA — stack below
+        </span>
       </div>
-      <div class="lead-stats rv d2">
-        <div class="lstat">
-          <span class="lstat-n" data-count="20" data-suffix="K+">20K+</span>
-          <span class="lstat-l">Signals daily</span>
-        </div>
-        <div class="lstat">
-          <span class="lstat-n">&lt;60s</span>
-          <span class="lstat-l">Ingestion-to-alert</span>
-        </div>
-        <div class="lstat">
-          <span class="lstat-n" data-count="7" data-suffix="+">7+</span>
-          <span class="lstat-l">Federal agencies</span>
-        </div>
-      </div>
-      <span class="lead-cta rv d3" style="cursor:default">
-        Under NDA — stack below
-      </span>
-    </div>
 
-    <div class="lead-visual-wrap rv d2">
+      <div class="lead-visual-wrap">
       <div class="lead-visual" id="leadVisual" aria-hidden="true">
         <div style="display:flex;flex-direction:column;height:100%">
           <div class="mb">
@@ -377,8 +382,10 @@ footer .ft-mid{flex:1;text-align:center}
           </div>
         </div>
       </div>
+      </div>
     </div>
 
+  </div>
   </div>
 
   <div class="lead-stack rv">
@@ -399,7 +406,7 @@ footer .ft-mid{flex:1;text-align:center}
 
 <!-- ── SUPPORTING PROJECTS ── -->
 <section id="projects">
-  <div class="sec-label rv">Other work</div>
+  <div class="sec-label rv"><span class="sec-label-line" aria-hidden="true"></span><span>Other work</span></div>
   <div class="proj-grid">
 
     <a href="https://web-production-75be0.up.railway.app" class="pc rv" target="_blank" rel="noopener noreferrer">
@@ -413,7 +420,7 @@ footer .ft-mid{flex:1;text-align:center}
       </div>
     </a>
 
-    <a href="https://marketplace.visualstudio.com/search?term=ChatAI+Copilot&target=VSCode" class="pc rv d1" target="_blank" rel="noopener noreferrer">
+    <a href="https://marketplace.visualstudio.com/items?itemName=SamarthNagpal.chatai-copilot" class="pc rv d1" target="_blank" rel="noopener noreferrer">
       <div class="pc-arr"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg></div>
       <div class="pc-num">03</div>
       <div class="pc-name">ChatAI Copilot</div>
@@ -445,9 +452,9 @@ footer .ft-mid{flex:1;text-align:center}
   </div>
   <p class="ct-sub rv d1">Founding-engineer roles &middot; pre-seed through Series A &middot; SF or Bangalore &middot; email replies within 24 hours.</p>
   <div class="ct-links rv d1">
-    <a href="mailto:hi@samarthify.in" class="cl primary">
+    <a href="mailto:samarthifyy@gmail.com" class="cl primary">
       <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
-      hi@samarthify.in
+      samarthifyy@gmail.com
     </a>
     <a href="https://x.com/samarthify" class="cl" target="_blank" rel="noopener noreferrer">
       <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.738l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -472,8 +479,12 @@ footer .ft-mid{flex:1;text-align:center}
   <span>© 2026 Samarth Nagpal</span>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
 <script>
 const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const IS_MOBILE = window.matchMedia('(max-width: 768px)').matches;
 
 // ── NOISE ──────────────────────────────────────────────────────
 (function(){
@@ -515,78 +526,223 @@ const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').mat
   loop();
 })();
 
-// ── NAV SCROLL ─────────────────────────────────────────────────
-window.addEventListener('scroll',()=>{
-  document.getElementById('nav').classList.toggle('past', window.scrollY>10);
-},{passive:true});
-
-// ── SCROLL REVEAL ──────────────────────────────────────────────
-const rvObs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add('on');rvObs.unobserve(e.target)}
-  });
-},{threshold:.08, rootMargin:'0px 0px -30px 0px'});
-document.querySelectorAll('.rv').forEach(el=>rvObs.observe(el));
-
-// ── APPLE-STYLE 3D ROTATION (scroll-driven) ────────────────────
-(function(){
-  const vis = document.getElementById('leadVisual');
-  const lead = document.getElementById('lead');
-  if(!vis||!lead) return;
-  if(REDUCED_MOTION){
-    vis.classList.add('animate');
-    document.getElementById('mv1').textContent='20K+';
-    document.getElementById('mv2').textContent='847';
-    document.getElementById('mv3').textContent='23';
-    return;
-  }
-  let raf=false;
-  function update(){
-    const rect = lead.getBoundingClientRect();
-    const wh = window.innerHeight;
-    const p = Math.max(0, Math.min(1, 1 - rect.top/wh));
-    const e = 1 - Math.pow(1-p, 3);
-    const ry = -28 + 28*e;
-    const rx = 7  -  7*e;
-    const sc = .93 + .07*e;
-    vis.style.transform = `rotateY(${ry}deg) rotateX(${rx}deg) scale(${sc})`;
-    if(p>.45 && !vis.classList.contains('animate')){
-      vis.classList.add('animate');
-      setTimeout(()=>{ document.getElementById('mv1').textContent='20K+'; },400);
-      setTimeout(()=>{ document.getElementById('mv2').textContent='847';   },600);
-      setTimeout(()=>{ document.getElementById('mv3').textContent='23';    },800);
+// ── SCRUB COUNTER HELPER ───────────────────────────────────────
+function bindScrubCounter(tl, obj, el, target, suffix, position, duration){
+  tl.to(obj, {
+    val: target,
+    ease: 'none',
+    duration: duration || 0.15,
+    onUpdate: ()=>{
+      const n = Math.round(obj.val);
+      el.textContent = n <= 0 ? '—' : n + suffix;
     }
-    raf=false;
-  }
-  window.addEventListener('scroll',()=>{if(!raf){raf=true;requestAnimationFrame(update);}},{passive:true});
-  update();
-})();
-
-// ── STAT COUNT-UP ──────────────────────────────────────────────
-function countUp(el, target, suffix, dur){
-  const start = Date.now();
-  (function tick(){
-    const p = Math.min((Date.now()-start)/dur, 1);
-    const e = 1-Math.pow(1-p,3);
-    el.textContent = Math.round(target*e) + suffix;
-    if(p<1) requestAnimationFrame(tick);
-  })();
+  }, position);
 }
-const cuObs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(!e.isIntersecting) return;
-    const el = e.target;
-    const raw = el.dataset.count;
-    const n = parseFloat(raw);
-    const sfx = el.dataset.suffix||'';
-    if(!isNaN(n)){
-      if(REDUCED_MOTION){ el.textContent = n + sfx; }
-      else { countUp(el, n, sfx, 1400); }
-    }
-    cuObs.unobserve(el);
+
+// ── REDUCED MOTION FALLBACK ────────────────────────────────────
+function initReducedMotion(){
+  document.getElementById('mv1').textContent = '20K+';
+  document.getElementById('mv2').textContent = '847';
+  document.getElementById('mv3').textContent = '23';
+  document.querySelectorAll('[data-count]').forEach(el=>{
+    el.textContent = el.dataset.count + (el.dataset.suffix || '');
   });
-},{threshold:.5});
-document.querySelectorAll('[data-count]').forEach(el=>cuObs.observe(el));
+  document.getElementById('nav').classList.toggle('past', window.scrollY > 10);
+  window.addEventListener('scroll', ()=>{
+    document.getElementById('nav').classList.toggle('past', window.scrollY > 10);
+  }, {passive:true});
+}
+
+// ── LENIS ──────────────────────────────────────────────────────
+function initLenis(){
+  const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
+  lenis.on('scroll', ({ scroll })=>{
+    ScrollTrigger.update();
+    document.getElementById('nav').classList.toggle('past', scroll > 10);
+  });
+  gsap.ticker.add(time => lenis.raf(time * 1000));
+  gsap.ticker.lagSmoothing(0);
+  return lenis;
+}
+
+// ── HERO SCENE ─────────────────────────────────────────────────
+function initHeroScene(){
+  const hero = document.querySelector('.hero');
+  const inner = document.querySelector('.hero-inner');
+  const grid = document.querySelector('.hero-grid');
+  const hint = document.querySelector('.hero-scroll-hint');
+  const scrollLine = document.querySelector('.scroll-line');
+  const sub = document.querySelector('.hero-sub');
+  const byline = document.querySelector('.hero-byline');
+  const statement = document.querySelector('.hero-statement');
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: hero,
+      start: 'top top',
+      end: () => `+=${IS_MOBILE ? '120%' : '150%'}`,
+      pin: true,
+      scrub: true,
+      anticipatePin: 1,
+    }
+  });
+
+  tl.to({}, { duration: 0.3 })
+    .to(statement, { scale: 0.92, transformOrigin: 'left bottom', ease: 'none', duration: 0.4 }, 0.3)
+    .to(grid, { y: -60, ease: 'none', duration: 0.4 }, 0.3)
+    .to(sub, { y: -24, opacity: 0, ease: 'none', duration: 0.35 }, 0.35)
+    .to(byline, { y: -16, opacity: 0, ease: 'none', duration: 0.3 }, 0.4)
+    .to(scrollLine, { scaleX: 2.8, ease: 'none', duration: 0.3 }, 0.3)
+    .to(inner, { opacity: 0, y: -40, ease: 'none', duration: 0.3 }, 0.7)
+    .to(hint, { opacity: 0, ease: 'none', duration: 0.2 }, 0.75)
+    .to(hero, { backgroundColor: '#000', ease: 'none', duration: 0.05 }, 0.95);
+}
+
+// ── LEAD SCENE ─────────────────────────────────────────────────
+function initLeadScene(){
+  const scene = document.querySelector('.lead-scene');
+  const vis = document.getElementById('leadVisual');
+  const chartPath = document.querySelector('.chart-path');
+  const pulse = document.querySelector('.mb-pulse');
+  const mv1 = document.getElementById('mv1');
+  const mv2 = document.getElementById('mv2');
+  const mv3 = document.getElementById('mv3');
+  const scrubItems = gsap.utils.toArray('.lead-content .scrub-item');
+  const statEls = document.querySelectorAll('.lead-stats [data-count]');
+
+  const pathLen = chartPath.getTotalLength();
+  gsap.set(chartPath, { strokeDasharray: pathLen, strokeDashoffset: pathLen });
+  gsap.set(scrubItems, { y: 40, opacity: 0 });
+  gsap.set(vis, {
+    rotateY: IS_MOBILE ? 0 : -28,
+    rotateX: IS_MOBILE ? 0 : 7,
+    scale: IS_MOBILE ? 0.95 : 0.93,
+    transformPerspective: 1400,
+  });
+
+  const c1 = { val: 0 }, c2 = { val: 0 }, c3 = { val: 0 };
+  const s1 = { val: 0 }, s2 = { val: 0 };
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: scene,
+      start: 'top top',
+      end: () => `+=${IS_MOBILE ? '180%' : '250%'}`,
+      pin: true,
+      scrub: true,
+      anticipatePin: 1,
+    }
+  });
+
+  if(IS_MOBILE){
+    tl.to(vis, { scale: 1, ease: 'none', duration: 0.35 }, 0);
+  } else {
+    tl.to(vis, { rotateY: 0, rotateX: 0, scale: 1, ease: 'none', duration: 0.35 }, 0);
+  }
+
+  tl.to(chartPath, { strokeDashoffset: 0, ease: 'none', duration: 0.2 }, 0.35);
+
+  bindScrubCounter(tl, c1, mv1, 20, 'K+', 0.55, 0.15);
+  bindScrubCounter(tl, c2, mv2, 847, '', 0.6, 0.15);
+  bindScrubCounter(tl, c3, mv3, 23, '', 0.65, 0.12);
+
+  tl.fromTo(pulse,
+    { boxShadow: '0 0 0 0 rgba(70,210,126,.6)' },
+    { boxShadow: '0 0 0 8px rgba(70,210,126,0)', ease: 'none', duration: 0.1 },
+    0.55
+  );
+
+  tl.to(scrubItems, { y: 0, opacity: 1, stagger: 0.04, ease: 'none', duration: 0.4 }, 0.6);
+
+  if(statEls[0]) bindScrubCounter(tl, s1, statEls[0], 20, 'K+', 0.72, 0.1);
+  if(statEls[1]) bindScrubCounter(tl, s2, statEls[1], 7, '+', 0.78, 0.08);
+}
+
+// ── SCRUB REVEALS ──────────────────────────────────────────────
+function initScrubReveals(){
+  document.querySelectorAll('.sec-label').forEach(label=>{
+    const line = label.querySelector('.sec-label-line');
+    const text = label.querySelector('span:last-child');
+    gsap.set(label, { opacity: 0, y: 20 });
+    if(line) gsap.set(line, { scaleX: 0 });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: label,
+        start: 'top 88%',
+        end: 'top 60%',
+        scrub: true,
+      }
+    });
+    tl.to(label, { opacity: 1, y: 0, ease: 'none', duration: 0.5 }, 0);
+    if(line) tl.to(line, { scaleX: 1, ease: 'none', duration: 0.4 }, 0);
+    if(text) tl.to(text, { opacity: 1, ease: 'none', duration: 0.3 }, 0.15);
+  });
+
+  gsap.utils.toArray('.pc').forEach((card, i)=>{
+    gsap.set(card, { opacity: 0, y: 48 });
+    gsap.to(card, {
+      opacity: 1,
+      y: 0,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: card,
+        start: `top ${85 - i * 4}%`,
+        end: `top ${40 - i * 3}%`,
+        scrub: true,
+      }
+    });
+  });
+
+  const ctStmt = document.querySelector('.ct-stmt');
+  const ctSub = document.querySelector('.ct-sub');
+  const ctLinks = document.querySelector('.ct-links');
+
+  gsap.set(ctStmt, { opacity: 0, y: 60, scale: 0.96 });
+  gsap.set(ctSub, { opacity: 0, y: 28 });
+  gsap.set(ctLinks, { opacity: 0, y: 24 });
+
+  const ctTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '#contact',
+      start: 'top 80%',
+      end: 'top 35%',
+      scrub: true,
+    }
+  });
+  ctTl.to(ctStmt, { opacity: 1, y: 0, scale: 1, ease: 'none', duration: 0.45 }, 0)
+      .to(ctSub, { opacity: 1, y: 0, ease: 'none', duration: 0.3 }, 0.35)
+      .to(ctLinks, { opacity: 1, y: 0, ease: 'none', duration: 0.3 }, 0.5);
+
+  const stack = document.querySelector('.lead-stack');
+  if(stack){
+    gsap.set(stack, { opacity: 0, y: 36 });
+    gsap.to(stack, {
+      opacity: 1,
+      y: 0,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: stack,
+        start: 'top 90%',
+        end: 'top 65%',
+        scrub: true,
+      }
+    });
+  }
+}
+
+// ── INIT ───────────────────────────────────────────────────────
+if(REDUCED_MOTION){
+  initReducedMotion();
+} else {
+  gsap.registerPlugin(ScrollTrigger);
+  initLenis();
+  initHeroScene();
+  initLeadScene();
+  initScrubReveals();
+  ScrollTrigger.refresh();
+  window.addEventListener('resize', ()=> ScrollTrigger.refresh());
+}
 </script>
 </body>
 </html>
